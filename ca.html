@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>La teva música. Els teus fitxers. · Own Your Music</title><meta name="description" content="Una guia pràctica per conservar la col·lecció i escoltar-la a la teva manera."><meta name="color-scheme" content="light"><link rel="stylesheet" href="style.css"></head><body><a class="skip" href="#main">Ves a la guia</a><header><a class="brand" href="index.html"><span class="mark" aria-hidden="true">●</span> Own Your Music</a><nav aria-label="Language"><a lang="es" href="es.html" >Español</a><a lang="en" href="en.html" >English</a><a lang="ca" href="ca.html" aria-current="page">Català</a></nav></header><main id="main"><div class="guide-hero" id="top"><p class="eyebrow">WINDOWS + ANDROID / NAVIDROME + TEMPUS</p><h1>La teva música. Els teus fitxers.</h1><p class="intro">Una guia pràctica per conservar la col·lecció i escoltar-la a la teva manera.</p><div class="meta"><span>v0.3</span><span>16.10.2026</span><span>CA</span></div></div><div id="journey-root" hidden></div><div class="layout" id="complete-guide"><aside><details open><summary>Contingut</summary><ol><li><a href="#section-1">Abans de començar</a></li><li><a href="#section-2">1. Aconsegueix música que puguis conservar</a></li><li><a href="#section-3">2. Descarrega Navidrome</a></li><li><a href="#section-4">3. Configura abans d’executar</a></li><li><a href="#section-5">4. Inicia i prova a Windows</a></li><li><a href="#section-6">5. Instal·la Tempus a Android</a></li><li><a href="#section-7">6. Connecta només des de la xarxa domèstica</a></li><li><a href="#section-8">7. Entra i escolta amb Tempus</a></li><li><a href="#section-9">8. Descarrega i comprova sense connexió</a></li><li><a href="#section-10">9. Llistes i ús diari</a></li><li><a href="#section-11">10. Discos externs, canvis i còpies</a></li><li><a href="#section-12">Problemes freqüents</a></li><li><a href="#section-13">Per què existeix aquesta guia</a></li><li><a href="#section-14">Fonts i notes del projecte</a></li></ol></details></aside><article><section class="guide-step"><h2 id="section-1">Abans de començar</h2>
+<p>Pots conservar la música sense llogar l’accés a un catàleg. Aquesta guia t’ajuda a reunir fitxers d’àudio, organitzar-los amb Navidrome a Windows i escoltar-los amb Tempus a Android. Tu hi poses la música: aquestes aplicacions no inclouen el catàleg de Spotify ni converteixen les seves descàrregues en fitxers propis.</p>
+<p><strong>No cal deixar l’ordinador encès tot el dia.</strong> Ha d’estar actiu, amb Navidrome obert, mentre hi accedeixes per reproduir música o descarregar-la al mòbil. Un cop descarregades les cançons a Tempus, les pots escoltar sense ordinador ni internet.</p>
+<p>Si només vols música en un mòbil, copiar els fitxers per USB i utilitzar un reproductor local és més senzill. Aquesta guia té sentit si vols una col·lecció central i accés des de diversos dispositius.</p>
+<h3>Què necessites</h3>
+<ul>
+<li>Un ordinador Windows, un mòbil Android i la teva xarxa domèstica de confiança.</li>
+<li>Espai per a la música als dos dispositius; és molt recomanable una altra unitat per a les còpies de seguretat.</li>
+<li>Com a mínim un àlbum MP3 o FLAC sense DRM per fer proves. Els programes són gratuïts; la música, l’emmagatzematge i l’electricitat poden tenir un cost.</li>
+<li>Permís per instal·lar programes. Si l’ordinador és institucional, consulta’n l’administrador.</li>
+</ul>
+<p><strong>Abast:</strong> Windows + Android, instal·lació portàtil manual i accés des de casa. Aquesta primera edició no configura accés per internet.</p>
+</section>
+<section class="guide-step"><h2 id="section-2">1. Aconsegueix música que puguis conservar</h2>
+<p>Compra descàrregues sense DRM a artistes o segells, o descarrega música que ofereixin expressament de franc. Bandcamp també permet comprar fitxers descarregables, tot i que continua sent una plataforma empresarial. Descarrega els fitxers reals en lloc de dependre només de la memòria cau d’una aplicació.</p>
+<p>Tria <strong>FLAC</strong> per conservar una còpia mestra sense pèrdua. MP3 ocupa menys i té una compatibilitat àmplia. Una banda sonora llarga pot ocupar diversos gigabytes en FLAC. WAV i AIFF acostumen a ocupar molt més que FLAC amb el mateix contingut d’àudio.</p>
+<p>Extreu el ZIP de l’àlbum i conserva juntes les cançons i la portada. Una estructura útil és artista → àlbum → cançons. Fes una còpia de seguretat: una sola còpia en un disc extern continua sent una sola còpia.</p>
+<p class="checkpoint"><strong>Comprovació:</strong> trobes fitxers <code>.flac</code> o <code>.mp3</code> reals a l’Explorador.</p>
+</section>
+<section class="guide-step"><h2 id="section-3">2. Descarrega Navidrome</h2>
+<p>A Configuració → Sistema → Quant a, comprova el tipus de sistema. Si tens un processador Intel o AMD x64, descarrega el fitxer estable acabat en <code>windows_amd64.zip</code> des de les <a href="https://github.com/navidrome/navidrome/releases/latest">versions oficials</a>. AMD64 vol dir x64, també per a Intel. Per a Windows ARM o de 32 bits, consulta les <a href="https://www.navidrome.org/docs/installation/windows/">instruccions de Windows</a> abans de triar.</p>
+<p>Prem Windows + R, escriu <code>%USERPROFILE%</code> i obre la carpeta d’usuari. Crea <code>Navidrome</code>, extreu-hi el ZIP i crea dues subcarpetes anomenades <code>music</code> i <code>data</code>. Separa l’aplicació, la música i la base de dades. Encara no obris el programa.</p>
+<p>Activa Explorador → Visualització → Mostra → Extensions de nom de fitxer (Windows 11), o Visualització → Extensions de nom de fitxer (Windows 10). Hi has de veure <code>navidrome.exe</code>.</p>
+<h3>Instal·la FFmpeg</h3>
+<p>La documentació d’instal·lació de Navidrome demana FFmpeg per convertir formats. Obre la <a href="https://ffmpeg.org/download.html">pàgina oficial de FFmpeg</a>, tria Windows i segueix un dels enllaços a compilacions per a Windows. Extreu la descàrrega i localitza <code>bin\ffmpeg.exe</code>. Copia aquest executable a <code>Navidrome</code>; conserva els fitxers addicionals si aquella compilació els necessita. Si n’hi ha, utilitza una compilació estàtica. Conserva també la informació de llicència.</p>
+<p>No desactivis la seguretat de Windows per executar una descàrrega. Comprova’n la procedència i les sumes de verificació disponibles; si Windows la bloqueja, investiga primer l’avís concret.</p>
+<p class="checkpoint"><strong>Comprovació:</strong> la carpeta conté <code>navidrome.exe</code>, <code>ffmpeg.exe</code>, <code>music</code> i <code>data</code>.</p>
+</section>
+<section class="guide-step"><h2 id="section-4">3. Configura abans d’executar</h2>
+<p>Obre el Bloc de notes, enganxa-hi el contingut següent i desa’l a <code>Navidrome</code> com a <code>navidrome.toml</code>. A Anomena i desa, selecciona Tots els fitxers. Comprova que no s’anomena <code>navidrome.toml.txt</code>.</p>
+<pre><code>MusicFolder = &#x27;./music&#x27;
+DataFolder = &#x27;./data&#x27;
+Address = &#x27;127.0.0.1&#x27;
+Port = 4533
+EnableInsightsCollector = false
+Deezer.Enabled = false
+LastFM.Enabled = false
+ListenBrainz.Enabled = false</code></pre>
+<p>Afegeix aquesta línia si has copiat FFmpeg al costat de Navidrome:</p>
+<pre><code>FFmpegPath = &#x27;./ffmpeg.exe&#x27;</code></pre>
+<p>Això limita inicialment l’accés a l’ordinador i desactiva les estadístiques d’ús i les integracions musicals indicades. No fa privat tot Windows ni tota la xarxa. Consulta la <a href="https://www.navidrome.org/docs/usage/configuration/options/">referència oficial</a> per als detalls.</p>
+</section>
+<section class="guide-step"><h2 id="section-5">4. Inicia i prova a Windows</h2>
+<p>Obre la carpeta Navidrome a l’Explorador. Prem la barra d’adreces, escriu <code>powershell</code> i prem Retorn. Utilitza una finestra normal, sense permisos d’administrador.</p>
+<pre><code>.\navidrome.exe --configfile .\navidrome.toml</code></pre>
+<p>Deixa la finestra oberta. Si apareix una petició del tallafoc, cancel·la-la en aquesta fase local. Obre <code>http://127.0.0.1:4533</code> al navegador de l’ordinador i crea el primer compte d’administrador amb una contrasenya única. Desa-la de manera privada al gestor de contrasenyes.</p>
+<p>Copia un àlbum extret a <code>music</code>. Executa l’escaneig des de Navidrome i obre Àlbums o Cançons per reproduir una pista. És normal que la biblioteca sigui buida abans d’afegir-hi música.</p>
+<p class="checkpoint"><strong>Comprovació:</strong> una cançó sona a Windows. Si no, consulta l’apartat de problemes abans de continuar.</p>
+</section>
+<section class="guide-step"><h2 id="section-6">5. Instal·la Tempus a Android</h2>
+<p>Al mòbil, descarrega F-Droid des de <a href="https://f-droid.org/">f-droid.org</a>. Obre l’APK. Si Android ho demana, permet temporalment que el navegador instal·li aplicacions d’aquell origen; desactiva aquest permís del navegador en acabar.</p>
+<p>Obre F-Droid, espera que actualitzi el catàleg i cerca <strong>Tempus, d’eddyizm</strong>. Compara’l amb la <a href="https://f-droid.org/en/packages/com.eddyizm.degoogled.tempus/">fitxa de F-Droid</a>. Instal·la Tempus i permet que F-Droid instal·li aplicacions quan Android ho demani. Obre Tempus i atura’t a Afegeix un servidor.</p>
+<p>Tempus és un client independent per al teu servidor. No necessita un compte de Spotify. La versió de F-Droid omet Android Auto i Chromecast, que depenen de biblioteques de Google; consulta el projecte si necessites aquestes funcions.</p>
+</section>
+<section class="guide-step"><h2 id="section-7">6. Connecta només des de la xarxa domèstica</h2>
+<p>Utilitza la teva xarxa domèstica de confiança, no la de la universitat, la feina, una xarxa pública ni la de convidats. L’ordinador pot utilitzar Ethernet i el mòbil la Wi-Fi del mateix encaminador. No canviïs el reenviament de ports de l’encaminador. Aquest procediment utilitza HTTP sense xifratge de transport: no és adequat per a xarxes no fiables ni per exposar el servidor a internet.</p>
+<p>A la configuració de xarxa de Windows, marca <strong>només aquesta connexió domèstica de confiança</strong> com a Privada. En una altra finestra de PowerShell, executa:</p>
+<pre><code>ipconfig</code></pre>
+<p>Busca Adreça IPv4 a l’adaptador Wi-Fi o Ethernet actiu. Ignora els adaptadors desconnectats o de VPN. <strong>192.168.1.100 és un exemple</strong>: substitueix-ne totes les aparicions per l’adreça real. Una adreça local no és una contrasenya, però no cal publicar-la.</p>
+<p>Atura Navidrome amb Ctrl + C. Edita <code>navidrome.toml</code> i substitueix la línia Address:</p>
+<pre><code>Address = &#x27;192.168.1.100&#x27;</code></pre>
+<p>Obre una altra finestra de PowerShell <strong>com a administrador</strong> i executa aquesta regla després de substituir l’adreça d’exemple. Permet connexions entrants al port TCP 4533 només amb el perfil Privat, des de la subxarxa local i cap a aquesta adreça.</p>
+<pre><code>New-NetFirewallRule -DisplayName &quot;Navidrome - Home&quot; -Direction Inbound -Action Allow -Protocol TCP -LocalPort 4533 -LocalAddress 192.168.1.100 -RemoteAddress LocalSubnet -Profile Private</code></pre>
+<p>Tanca la finestra d’administrador. Reinicia Navidrome amb l’ordre del pas 4 des de la seva carpeta en un PowerShell normal. Al navegador del mòbil, obre <code>http://192.168.1.100:4533</code> amb l’adreça real. Utilitza-la també a Windows: amb aquesta configuració, l’adreça local anterior ja no respondrà.</p>
+<p class="checkpoint"><strong>Comprovació:</strong> el mòbil mostra la pàgina d’accés. Mantén el tallafoc activat. Si falla, consulta els problemes abans d’obrir l’accés a totes les xarxes.</p>
+</section>
+<section class="guide-step"><h2 id="section-8">7. Entra i escolta amb Tempus</h2>
+<p>Per escoltar música cada dia, utilitza un <strong>usuari de Navidrome sense permisos d’administrador</strong>. Entra com a administrador des de Windows, obre la gestió d’usuaris i crea’l. Reserva el compte d’administrador per al manteniment.</p>
+<p>A Tempus → Afegeix un servidor, introdueix el nom que vulguis, l’URL del servidor (per exemple <code>http://192.168.1.100:4533</code>) i les credencials de l’usuari per escoltar música. Si et demana el tipus, tria Navidrome o Subsonic/OpenSubsonic. No necessites un compte al núvol. Deixa desconnectats els serveis opcionals de registre d’escoltes, tret que els vulguis fer servir.</p>
+<p>Obre un àlbum i reprodueix una cançó. Per reproduir des del servidor, l’ordinador ha de continuar actiu i executant Navidrome.</p>
+<p class="checkpoint"><strong>Comprovació:</strong> Tempus reprodueix una cançó mentre està connectat a la Wi-Fi de casa.</p>
+</section>
+<section class="guide-step"><h2 id="section-9">8. Descarrega i comprova sense connexió</h2>
+<p>Obre el menú d’un àlbum o una llista a Tempus i tria Descarrega. Espera que acabin totes les cançons: una pista que només hagis reproduït pot ser únicament a la memòria cau. Comprova l’espai lliure. Els FLAC poden ser grans; per descarregar versions convertides més petites calen FFmpeg i els ajustos adequats del servidor i del client. Prova una cançó abans de canviar tota la col·lecció.</p>
+<p>Activa el mode avió i desactiva també la Wi-Fi. Entra a Descàrregues o a la vista sense connexió de Tempus, navega fins a l’àlbum i reprodueix diverses pistes que no acabis d’escoltar. Si és llarg, comprova’n el principi, la meitat i el final.</p>
+<p class="checkpoint"><strong>Comprovació:</strong> aquestes cançons sonen sense connexió. Ja pots aturar Navidrome i apagar l’ordinador. Esborrar les dades de Tempus o desinstal·lar-lo pot eliminar les descàrregues.</p>
+<p>Si la cerca no funciona sense connexió, navega directament pels àlbums descarregats. El funcionament de la cerca sense connexió pot variar segons la versió de l’aplicació.</p>
+</section>
+<section class="guide-step"><h2 id="section-10">9. Llistes i ús diari</h2>
+<p>Amb connexió al servidor, utilitza el menú d’una cançó → Afegeix a una llista → Llista nova, o edita una llista a Navidrome. Crear una llista no descarrega les cançons. Descarrega-la per separat i comprova que la pots obrir sense connexió; editar llistes del servidor acostuma a requerir connexió.</p>
+<p>Per escoltar les descàrregues, només cal obrir Tempus. F-Droid no ha de continuar obert; conserva’l per actualitzar. Per reproduir des del servidor, afegir descàrregues o modificar llistes, inicia Navidrome i connecta des de casa.</p>
+<p>Per aturar Navidrome, prem Ctrl + C a la seva finestra i tanca-la. Per tornar-lo a iniciar, obre PowerShell a la seva carpeta i executa l’ordre del pas 4. Aquesta instal·lació manual no s’inicia automàticament amb Windows.</p>
+</section>
+<section class="guide-step"><h2 id="section-11">10. Discos externs, canvis i còpies</h2>
+<p>Pots desar la música en un disc extern i mantenir Navidrome i <code>data</code> a l’ordinador. <strong>Primer copia</strong>, comprova els fitxers, atura Navidrome i canvia MusicFolder per la ruta real, per exemple:</p>
+<pre><code>MusicFolder = &#x27;E:\Music&#x27;</code></pre>
+<p>Reinicia i escaneja. El disc ha d’estar connectat mentre hi accedeixes per reproduir o descarregar. Si falta el disc, no purguis les cançons absents. Les lletres d’unitat poden canviar: si cal, assigna una lletra disponible estable amb Administració de discos, sense formatar.</p>
+<p>Després de moure pistes dins la biblioteca configurada, torna a escanejar. Navidrome intenta reconèixer els fitxers moguts. Esborrar-los o treure’ls de la biblioteca pot deixar entrades absents. Les descàrregues del mòbil són independents: no pressuposis que actualitzar el servidor les elimina. Esborra expressament les còpies sense connexió que no vulguis; els ajustos de sincronització de llistes poden modificar aquest comportament.</p>
+<p>Fes còpies de la música, la configuració i la base de dades. En aquesta instal·lació manual, atura Navidrome abans de copiar tota la carpeta <code>data</code> i <code>navidrome.toml</code> a un altre dispositiu. Protegeix la còpia: conté informació dels comptes. Les descàrregues del mòbil no substitueixen una còpia completa del servidor. Fes una còpia abans d’actualitzar Navidrome i revisa les notes de la versió.</p>
+</section>
+<section class="guide-step"><h2 id="section-12">Problemes freqüents</h2>
+<h3>No s’obre o el servidor s’atura</h3>
+<p>Llegeix l’últim error de PowerShell. Executa des de la carpeta correcta. Si falta FFmpeg, revisa <code>FFmpegPath</code> i l’executable. Si el port 4533 està ocupat, comprova si ja hi ha una altra finestra de Navidrome abans de canviar-lo.</p>
+<h3>L’adreça deixa de funcionar després de reiniciar</h3>
+<p>Torna a executar <code>ipconfig</code>. L’encaminador pot haver assignat una altra adreça. Una reserva DHCP al teu encaminador pot mantenir-la estable; consulta’n el manual. Si canvia, actualitza Address, l’adreça local de la regla del tallafoc i l’URL de Tempus. Per substituir la nostra regla, elimina-la en PowerShell com a administrador amb aquesta ordre i torna-la a crear segons el pas 6 amb la nova adreça.</p>
+<pre><code>Remove-NetFirewallRule -DisplayName &#x27;Navidrome - Home&#x27;</code></pre>
+<p>Si ets fora de casa, aquesta adreça domèstica pot no existir a la connexió actual. Utilitza les descàrregues del mòbil. Per escoltar només a l’ordinador, atura Navidrome, torna a posar Address a <code>127.0.0.1</code>, reinicia i utilitza aquesta adreça local.</p>
+<h3>El mòbil no connecta</h3>
+<p>Comprova que tots dos dispositius són a la xarxa domèstica principal, el perfil Privat de Windows, que Navidrome és actiu i l’adreça actual. La xarxa de convidats pot aïllar els dispositius. Revisa la regla limitada del tallafoc; no el desactivis ni obris ports a l’encaminador. Una VPN pot afectar la connexió.</p>
+<h3>Falta un àlbum o no sona una cançó</h3>
+<p>Extreu els ZIP, comprova MusicFolder i els permisos, escaneja i revisa els registres. Mira les etiquetes si l’àlbum apareix sota un altre artista. Comprova FFmpeg si falla la conversió. Després de diversos accessos fallits, espera abans de tornar-hi; no desactivis el límit d’intents.</p>
+<h3>Les descàrregues sonen però la cerca falla</h3>
+<p>Navega directament per Descàrregues i comprova que l’àlbum sigui complet. Una cerca fallida sense connexió no vol dir que falti l’àudio. Connecta al servidor per utilitzar les funcions que ho necessitin.</p>
+</section>
+<section class="guide-step"><h2 id="section-13">Per què existeix aquesta guia</h2>
+<p>Aquest projecte va néixer de la lectura de <strong>Technofeudalism: What Killed Capitalism</strong>, de <strong>Yanis Varoufakis</strong>. La seva crítica al poder de les plataformes digitals ens va dur a una pregunta pràctica: com podem dependre menys, en la vida quotidiana, de serveis que ens lloguen l’accés?</p>
+<p>Aquí comencem per la música: conservar els fitxers, donar suport a qui la crea, utilitzar eines que puguem canviar i compartir el que aprenem. És un petit experiment d’autonomia digital, no l’afirmació que canviar de reproductor resolgui un sistema polític.</p>
+<p>La nostra orientació solarpunk és esperançadora i pràctica: aprofitar els dispositius que ja tenim, conservar una col·lecció sense connexió, donar suport a artistes independents i compartir coneixement útil en diverses llengües. Hi pots participar sense estar d’acord amb tots els arguments del llibre.</p>
+<p><strong>T’interessen les idees que han inspirat la guia? Demana el llibre de Varoufakis a la llibreria independent més propera o busca’l a la biblioteca. Si no el tenen, pregunta si el poden encarregar o gestionar un préstec.</strong></p>
+<p>La lectura pot ser un punt de partida. Construir i compartir alternatives és una cosa que podem fer plegats.</p>
+</section>
+<section class="guide-step"><h2 id="section-14">Fonts i notes del projecte</h2>
+<p>Aquesta és una guia comunitària independent, no una publicació oficial de Navidrome, Tempus, Bandcamp ni Spotify. No distribueix música. Els noms dels botons poden variar segons l’idioma i la versió.</p>
+<p>El lloc no afegeix analítica, publicitat, tipus de lletra remots ni scripts externs. L’allotjament i els llocs enllaçats tenen les seves pròpies pràctiques de dades. Conserva junta la carpeta del lloc descarregat per llegir-lo sense connexió. Els tres idiomes cobreixen el mateix procediment; comunica correccions al repositori.</p>
+<p>Referències oficials: <a href="https://www.navidrome.org/docs/installation/">instal·lació de Navidrome</a>, <a href="https://www.navidrome.org/docs/getting-started/">primer ús</a>, <a href="https://www.navidrome.org/docs/usage/configuration/options/">configuració</a>, <a href="https://www.navidrome.org/docs/usage/admin/security/">seguretat</a>, <a href="https://www.navidrome.org/docs/usage/library/missing-files/">fitxers absents</a>, <a href="https://ffmpeg.org/download.html">FFmpeg</a>, <a href="https://github.com/eddyizm/tempus">Tempus</a>, <a href="https://eddyizm.github.io/tempus/USAGE.html">ús de Tempus</a>, <a href="https://f-droid.org/en/packages/com.eddyizm.degoogled.tempus/">F-Droid</a>, <a href="https://learn.microsoft.com/en-us/powershell/module/netsecurity/new-netfirewallrule">regles del tallafoc</a> i <a href="https://get.bandcamp.help/en/articles/15263234-in-which-formats-can-i-download-my-purchases">formats de Bandcamp</a>.</p>
+<p>Última actualització: 16 d’octubre de 2026. Els noms dels botons poden variar segons la versió de les aplicacions.</p>
+</section><a class="toplink" href="#top">↑ Torna a dalt</a></article></div></main><footer><span>Own Your Music · David Saeteros · 2026</span><a href="https://github.com/David-Saeteros/own-your-music">GitHub ↗</a></footer><script src="guide-data.js" defer></script><script src="app.js" defer></script></body></html>

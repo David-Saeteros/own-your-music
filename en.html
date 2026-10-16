@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Your music. Your files. · Own Your Music</title><meta name="description" content="A practical guide to keeping your collection and listening on your own terms."><meta name="color-scheme" content="light"><link rel="stylesheet" href="style.css"></head><body><a class="skip" href="#main">Skip to guide</a><header><a class="brand" href="index.html"><span class="mark" aria-hidden="true">●</span> Own Your Music</a><nav aria-label="Language"><a lang="es" href="es.html" >Español</a><a lang="en" href="en.html" aria-current="page">English</a><a lang="ca" href="ca.html" >Català</a></nav></header><main id="main"><div class="guide-hero" id="top"><p class="eyebrow">WINDOWS + ANDROID / NAVIDROME + TEMPUS</p><h1>Your music. Your files.</h1><p class="intro">A practical guide to keeping your collection and listening on your own terms.</p><div class="meta"><span>v0.3</span><span>16.10.2026</span><span>EN</span></div></div><div id="journey-root" hidden></div><div class="layout" id="complete-guide"><aside><details open><summary>Contents</summary><ol><li><a href="#section-1">Before you start</a></li><li><a href="#section-2">1. Get music you can keep</a></li><li><a href="#section-3">2. Download Navidrome</a></li><li><a href="#section-4">3. Configure it before running</a></li><li><a href="#section-5">4. Start and test on Windows</a></li><li><a href="#section-6">5. Install Tempus on Android</a></li><li><a href="#section-7">6. Connect only on your home network</a></li><li><a href="#section-8">7. Sign in and listen in Tempus</a></li><li><a href="#section-9">8. Download and prove it works offline</a></li><li><a href="#section-10">9. Playlists and everyday use</a></li><li><a href="#section-11">10. External drives, changes and backups</a></li><li><a href="#section-12">Troubleshooting</a></li><li><a href="#section-13">Why this guide exists</a></li><li><a href="#section-14">Sources and project notes</a></li></ol></details></aside><article><section class="guide-step"><h2 id="section-1">Before you start</h2>
+<p>You can keep music without renting access to a catalogue. This guide helps you build a collection of ordinary audio files, organise it with Navidrome on Windows, and listen with Tempus on Android. You supply the music; these apps do not include Spotify’s catalogue or convert Spotify downloads into files you own.</p>
+<p><strong>You do not need to leave your computer on all day.</strong> It must be awake, with Navidrome running, while you stream or download from it. Once tracks are downloaded in Tempus, your phone can play them without your computer or an internet connection.</p>
+<p>If all you need is music on one phone, copying files by USB into a local player is simpler. Use this guide when you want a central collection and access from several devices.</p>
+<h3>What you need</h3>
+<ul>
+<li>A Windows computer, an Android phone, and your trusted home network.</li>
+<li>Space for music on both devices; a separate drive for backups is strongly recommended.</li>
+<li>At least one DRM-free MP3 or FLAC album for testing. Software is free; music, storage and electricity may cost money.</li>
+<li>Permission to install software. On an institutional computer, check with its administrator.</li>
+</ul>
+<p><strong>Scope:</strong> Windows + Android, a manual portable installation, and home-network access. Remote internet streaming is outside this first edition.</p>
+</section>
+<section class="guide-step"><h2 id="section-2">1. Get music you can keep</h2>
+<p>Buy DRM-free downloads from artists or labels, or download music they explicitly offer for free. Bandcamp is another source of downloadable purchases, although it remains a corporate marketplace. Download the actual files instead of relying only on an app’s offline cache.</p>
+<p>Choose <strong>FLAC</strong> for a lossless master copy. MP3 is smaller and widely compatible. A large soundtrack can take several gigabytes in FLAC. WAV and AIFF are normally much larger than FLAC for equivalent audio content.</p>
+<p>Extract the album ZIP and keep its tracks and cover art together. A useful folder arrangement is artist → album → tracks. Keep a backup: one copy on an external drive is still only one copy.</p>
+<p class="checkpoint"><strong>Checkpoint:</strong> you can find actual <code>.flac</code> or <code>.mp3</code> files in File Explorer.</p>
+</section>
+<section class="guide-step"><h2 id="section-3">2. Download Navidrome</h2>
+<p>Open Settings → System → About and check System type. On an x64 Intel or AMD computer, download the stable asset ending in <code>windows_amd64.zip</code> from the <a href="https://github.com/navidrome/navidrome/releases/latest">official releases</a>. AMD64 means x64, including Intel. For ARM or 32-bit Windows, consult the <a href="https://www.navidrome.org/docs/installation/windows/">Windows instructions</a> before choosing a build.</p>
+<p>Press Windows + R, type <code>%USERPROFILE%</code>, and open your user folder. Create <code>Navidrome</code>, extract the ZIP there, and create two subfolders named <code>music</code> and <code>data</code>. Keep the application, music and database distinct. Do not start the application yet.</p>
+<p>Turn on File Explorer → View → Show → File name extensions (Windows 11), or View → File name extensions (Windows 10). You should see <code>navidrome.exe</code>.</p>
+<h3>Install FFmpeg</h3>
+<p>Navidrome’s installation documentation calls for FFmpeg, used for format conversion. Open the <a href="https://ffmpeg.org/download.html">official FFmpeg download page</a>, choose Windows, and follow a linked Windows build provider. Extract the build and locate <code>bin\ffmpeg.exe</code>. Copy that executable into your <code>Navidrome</code> folder; keep any accompanying files if the chosen build requires them. Use a static build if available. Keep its licence information too.</p>
+<p>Do not disable Windows security to make a download run. Check the source and any available checksums; if Windows blocks it, investigate the specific warning first.</p>
+<p class="checkpoint"><strong>Checkpoint:</strong> the Navidrome folder contains <code>navidrome.exe</code>, <code>ffmpeg.exe</code>, <code>music</code> and <code>data</code>.</p>
+</section>
+<section class="guide-step"><h2 id="section-4">3. Configure it before running</h2>
+<p>Open Notepad, paste the following, and save inside <code>Navidrome</code> as <code>navidrome.toml</code>. In Save As, select All files. Check it is not named <code>navidrome.toml.txt</code>.</p>
+<pre><code>MusicFolder = &#x27;./music&#x27;
+DataFolder = &#x27;./data&#x27;
+Address = &#x27;127.0.0.1&#x27;
+Port = 4533
+EnableInsightsCollector = false
+Deezer.Enabled = false
+LastFM.Enabled = false
+ListenBrainz.Enabled = false</code></pre>
+<p>Add this line if you copied FFmpeg beside Navidrome:</p>
+<pre><code>FFmpegPath = &#x27;./ffmpeg.exe&#x27;</code></pre>
+<p>This starts with access limited to the computer and turns off usage reporting and the listed music-service integrations. It does not make every part of Windows or your network private. Configuration details are in the <a href="https://www.navidrome.org/docs/usage/configuration/options/">official reference</a>.</p>
+</section>
+<section class="guide-step"><h2 id="section-5">4. Start and test on Windows</h2>
+<p>In File Explorer, open your Navidrome folder. Click the address bar, type <code>powershell</code>, and press Enter. Use an ordinary PowerShell window, not an administrator window.</p>
+<pre><code>.\navidrome.exe --configfile .\navidrome.toml</code></pre>
+<p>Keep the window open. If a firewall prompt appears, cancel it for this computer-only stage. Open <code>http://127.0.0.1:4533</code> in your computer’s browser and create the first administrator account with a unique password. Save it privately in your password manager.</p>
+<p>Copy one extracted album into <code>music</code>. Use Navidrome’s scan/rescan control, then open Albums or Songs and play a track. An empty library before adding music is normal.</p>
+<p class="checkpoint"><strong>Checkpoint:</strong> a track plays on Windows. If not, use the troubleshooting section before continuing.</p>
+</section>
+<section class="guide-step"><h2 id="section-6">5. Install Tempus on Android</h2>
+<p>On your phone, download the F-Droid client from <a href="https://f-droid.org/">f-droid.org</a>. Open its APK. If Android asks, temporarily allow your browser to install apps from this source; turn that browser permission off after installation.</p>
+<p>Open F-Droid, wait for its catalogue to update, then search for <strong>Tempus by eddyizm</strong>. Compare it with the <a href="https://f-droid.org/en/packages/com.eddyizm.degoogled.tempus/">official F-Droid listing</a>. Install Tempus, allowing F-Droid to install apps when Android asks. Open Tempus and stop at Add server.</p>
+<p>Tempus is a separate client for your server. It does not need a Spotify account. Its F-Droid build omits Google-dependent Android Auto and Chromecast support; consult its project if those features matter to you.</p>
+</section>
+<section class="guide-step"><h2 id="section-7">6. Connect only on your home network</h2>
+<p>Use your own trusted home network, not university, work, public or guest Wi-Fi. Your computer may use Ethernet and your phone Wi-Fi on the same router. Leave the router’s port-forwarding settings untouched. This walkthrough uses HTTP without transport encryption, so it is unsuitable for untrusted networks or public internet exposure.</p>
+<p>In Windows network settings, set <strong>only this trusted home connection</strong> to Private. In a new PowerShell window, run:</p>
+<pre><code>ipconfig</code></pre>
+<p>Find IPv4 Address under the active Wi-Fi or Ethernet adapter. Ignore disconnected and VPN adapters. We use <strong>192.168.1.100 as an example</strong> below: replace every occurrence with your actual address. A local address is not a password, but there is no need to publish yours.</p>
+<p>Stop Navidrome using Ctrl + C. Edit <code>navidrome.toml</code>, replacing its Address line:</p>
+<pre><code>Address = &#x27;192.168.1.100&#x27;</code></pre>
+<p>Now open a separate PowerShell window <strong>as administrator</strong> and run the rule below, after substituting your computer’s actual address. It allows inbound TCP port 4533 only on the Private profile, from the local subnet, at that address.</p>
+<pre><code>New-NetFirewallRule -DisplayName &quot;Navidrome - Home&quot; -Direction Inbound -Action Allow -Protocol TCP -LocalPort 4533 -LocalAddress 192.168.1.100 -RemoteAddress LocalSubnet -Profile Private</code></pre>
+<p>Close the administrator window. Restart Navidrome with the command in step 4 from its folder in ordinary PowerShell. On the phone’s browser, visit <code>http://192.168.1.100:4533</code>, substituting your address. Use that address on Windows too: the old loopback address will no longer connect with this binding.</p>
+<p class="checkpoint"><strong>Checkpoint:</strong> the phone displays the login page. Keep the firewall enabled. If this fails, check the troubleshooting section rather than opening access to every network.</p>
+</section>
+<section class="guide-step"><h2 id="section-8">7. Sign in and listen in Tempus</h2>
+<p>For daily listening, use a separate <strong>non-administrator Navidrome user</strong>. Sign in as administrator on Windows, open user management and create that user. Keep your administrator account for maintenance.</p>
+<p>In Tempus → Add server, set any display name, your server URL (for example <code>http://192.168.1.100:4533</code>), and the listening user’s username and password. Choose Navidrome or Subsonic/OpenSubsonic if asked for a server type. No cloud account is required. Leave optional scrobbling services disconnected unless you want them.</p>
+<p>Open an album and play a track. Streaming still requires the computer to be awake and running Navidrome.</p>
+<p class="checkpoint"><strong>Checkpoint:</strong> a track plays through Tempus while connected to home Wi-Fi.</p>
+</section>
+<section class="guide-step"><h2 id="section-9">8. Download and prove it works offline</h2>
+<p>Open the album or playlist menu in Tempus and choose Download. Wait until all intended tracks finish; a song you merely streamed may only be cached. Check available phone storage. FLAC originals can be large; smaller converted downloads need working FFmpeg and suitable server/client settings. Test one track before changing the whole collection.</p>
+<p>Enable airplane mode and explicitly switch Wi-Fi off too. Open Tempus’s Downloads or offline view, browse an album, and play several tracks you did not just stream. Check the start, middle and end of a long album.</p>
+<p class="checkpoint"><strong>Checkpoint:</strong> those tracks play with no connection. You can now stop Navidrome and switch off the computer. Clearing Tempus’s app data or uninstalling it can remove the downloads.</p>
+<p>If searching does not work offline, browse downloaded albums directly. Offline search behaviour can vary between app versions.</p>
+</section>
+<section class="guide-step"><h2 id="section-10">9. Playlists and everyday use</h2>
+<p>While connected to your server, use a track’s menu → Add to playlist → New playlist, or edit a playlist in Navidrome. Creating a playlist does not download its tracks. Download it separately and test its availability offline; editing server playlists generally needs a connection.</p>
+<p>For downloaded music, simply open Tempus. F-Droid does not need to stay open; keep it installed for updates. For streaming, adding downloads or changing server playlists, start Navidrome and reconnect at home.</p>
+<p>To stop Navidrome, press Ctrl + C in its window, then close it. To start it again, open PowerShell in its folder and run the command from step 4. This manual setup does not start automatically with Windows.</p>
+</section>
+<section class="guide-step"><h2 id="section-11">10. External drives, changes and backups</h2>
+<p>You can keep the music on an external drive while leaving Navidrome and <code>data</code> on the computer. <strong>Copy first</strong>, check the new files, stop Navidrome, and change MusicFolder to the actual path, for example:</p>
+<pre><code>MusicFolder = &#x27;E:\Music&#x27;</code></pre>
+<p>Restart and scan. Keep the drive connected during streaming or downloads. A missing drive is not a reason to purge missing tracks. Windows drive letters can change; use Disk Management to assign a stable available letter if needed, without formatting the drive.</p>
+<p>After moving tracks inside the configured library, scan again. Navidrome normally attempts to recognise moved files. Deleting or moving files outside the library can leave missing entries. Phone downloads are separate: do not assume a server refresh deletes them. Remove unwanted offline copies explicitly; playlist-sync settings may alter download behaviour.</p>
+<p>Back up your music, configuration and database. For this manual setup, stop Navidrome before copying the whole <code>data</code> folder and <code>navidrome.toml</code> to a separate backup device. Keep that backup private because it contains account information. Phone downloads are useful copies, not a complete server backup. Back up before updating Navidrome and review its release notes.</p>
+</section>
+<section class="guide-step"><h2 id="section-12">Troubleshooting</h2>
+<h3>Nothing opens or the server stops</h3>
+<p>Read the last error in PowerShell. Run the command from the correct folder. If it reports FFmpeg missing, check <code>FFmpegPath</code> and the executable. If port 4533 is already in use, check whether another Navidrome window is running before changing ports.</p>
+<h3>The address stopped working after a restart</h3>
+<p>Run <code>ipconfig</code> again. Your router may have assigned a new address. A DHCP reservation in your own router can keep it stable; consult its manual. If it changed, update Address, the firewall rule’s local address, and the URL in Tempus. To replace our rule, remove it in administrator PowerShell with the command below, then recreate it using step 6 and the new address.</p>
+<pre><code>Remove-NetFirewallRule -DisplayName &#x27;Navidrome - Home&#x27;</code></pre>
+<p>If you are away from home, the configured home address may not exist on that connection. Use phone downloads. For computer-only listening, stop Navidrome, restore Address to <code>127.0.0.1</code>, restart, and use the loopback URL.</p>
+<h3>The phone cannot connect</h3>
+<p>Check that both devices use the main home network, Windows marks it Private, Navidrome is running, the address is current, and guest isolation is not separating the devices. Verify the scoped firewall rule; do not disable the firewall or add router port forwarding. VPNs can affect connectivity.</p>
+<h3>An album is missing or a track will not play</h3>
+<p>Extract ZIPs, check MusicFolder and file permissions, run a scan, and inspect logs. Check audio tags if an album is filed under an unexpected artist. Verify FFmpeg for conversion problems. After repeated failed logins, wait before retrying rather than disabling the login limiter.</p>
+<h3>A download works but searching does not</h3>
+<p>Browse Downloads directly and verify the complete album was downloaded. Do not assume a failed offline search means the audio is missing. Reconnect to the server for operations that need it.</p>
+</section>
+<section class="guide-step"><h2 id="section-13">Why this guide exists</h2>
+<p>This project grew out of reading <strong>Technofeudalism: What Killed Capitalism</strong>, by <strong>Yanis Varoufakis</strong>. His critique of the power of digital platforms prompted a practical question: how can we make everyday life less dependent on services that rent us access?</p>
+<p>For this project, the answer begins with music: keep the files, support the people who make it, use tools you can change, and share what you learn. This is one small experiment in digital autonomy, not a claim that changing a music player solves a political system.</p>
+<p>Our solarpunk direction is hopeful and practical: use devices you already have, keep an offline collection, support independent artists, and make useful knowledge available in several languages. You can participate without agreeing with every argument in the book.</p>
+<p><strong>Curious about the ideas behind the guide? Ask for Varoufakis’s book at your nearest independent bookshop or borrow it from your local library. If it is not on the shelf, ask whether they can order it or arrange a loan.</strong></p>
+<p>Reading can be a starting point. Building and sharing alternatives is something we can do together.</p>
+</section>
+<section class="guide-step"><h2 id="section-14">Sources and project notes</h2>
+<p>This is an independent community guide, not an official Navidrome, Tempus, Bandcamp or Spotify publication. No music files are distributed here. Buttons may have different labels in your language or app version.</p>
+<p>The site adds no analytics, advertising, remote fonts or third-party scripts. Hosting and external sites have their own data practices. Keep the downloaded site folder together to read it offline. The three languages cover the same workflow; report corrections through the repository.</p>
+<p>Official references: <a href="https://www.navidrome.org/docs/installation/">Navidrome installation</a>, <a href="https://www.navidrome.org/docs/getting-started/">first use</a>, <a href="https://www.navidrome.org/docs/usage/configuration/options/">configuration</a>, <a href="https://www.navidrome.org/docs/usage/admin/security/">security</a>, <a href="https://www.navidrome.org/docs/usage/library/missing-files/">missing files</a>, <a href="https://ffmpeg.org/download.html">FFmpeg</a>, <a href="https://github.com/eddyizm/tempus">Tempus</a>, <a href="https://eddyizm.github.io/tempus/USAGE.html">Tempus usage</a>, <a href="https://f-droid.org/en/packages/com.eddyizm.degoogled.tempus/">F-Droid</a>, <a href="https://learn.microsoft.com/en-us/powershell/module/netsecurity/new-netfirewallrule">Windows firewall rule</a>, and <a href="https://get.bandcamp.help/en/articles/15263234-in-which-formats-can-i-download-my-purchases">Bandcamp download formats</a>.</p>
+<p>Last updated: 16 October 2026. Button names may vary between app versions.</p>
+</section><a class="toplink" href="#top">↑ Back to top</a></article></div></main><footer><span>Own Your Music · David Saeteros · 2026</span><a href="https://github.com/David-Saeteros/own-your-music">GitHub ↗</a></footer><script src="guide-data.js" defer></script><script src="app.js" defer></script></body></html>
